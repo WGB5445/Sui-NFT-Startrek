@@ -33,6 +33,7 @@ module contract::nft{
         ];
 
         let publisher = package::claim(witness,ctx);
+        // testnet: 0x79ba16f3383823d9c5ab81d5c9d9555332ade7fde534fc862617f68f350b9932
         let display = display::new_with_fields<MyNFT>(&publisher, keys, values, ctx);
         display::update_version(&mut display);
         transfer::public_transfer(publisher, tx_context::sender(ctx));

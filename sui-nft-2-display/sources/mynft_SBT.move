@@ -34,6 +34,7 @@ module contract::nft_sbt{
         ];
 
         let publisher = package::claim(witness,ctx);
+        // testnet: 0xa79ce55e233d81e8bc8473e8ee8ef0b13adaac2075d602b8b5d91e7690455e45
         let display = display::new_with_fields<MySBT>(&publisher, keys, values, ctx);
         display::update_version(&mut display);
         transfer::public_transfer(publisher, tx_context::sender(ctx));

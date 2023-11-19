@@ -44,6 +44,7 @@ module contract::hero{
         ];
 
         let publisher = package::claim(witness,ctx);
+        // testnet: 0xe4ad01ae4a1ca2a027e5d78233e37e11053bb60e643f277c870b8cdc442b999c
         let display = display::new_with_fields<MyHero>(&publisher, keys, values, ctx);
         display::update_version(&mut display);
         transfer::public_transfer(publisher, tx_context::sender(ctx));
