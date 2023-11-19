@@ -1,13 +1,13 @@
-module contract::nft{
+module contract::nft_sbt{
     use sui::object::{Self, UID};
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
     use sui::display;
     use sui::package;
     use std::string::utf8;
-    struct NFT has drop {}
+    struct NFT_SBT has drop {}
 
-    struct MyNFT has key,store{
+    struct MySBT has key{
         id: UID,
         tokenId: u64
     }
@@ -17,7 +17,7 @@ module contract::nft{
         count: u64
     }
 
-    fun init(witness: NFT, ctx:&mut TxContext){
+    fun init(witness: NFT_SBT, ctx:&mut TxContext){
         let keys = vector[
             utf8(b"name"),
             utf8(b"collection"),
@@ -26,14 +26,14 @@ module contract::nft{
         ];
 
         let values = vector[
-            utf8(b"MyNFT #{tokenId}"),
-            utf8(b"MyNFT Collection"),
+            utf8(b"MySBT #{tokenId}"),
+            utf8(b"MySBT Collection"),
             utf8(b"ipfs://QmPbxeGcXhYQQNgsC6a36dDyYUcHgMLnGKnF8pVFmGsvqi"),
-            utf8(b"This is My NFT")
+            utf8(b"This is My SBT")
         ];
 
         let publisher = package::claim(witness,ctx);
-        let display = display::new_with_fields<MyNFT>(&publisher, keys, values, ctx);
+        let display = display::new_with_fields<MySBT>(&publisher, keys, values, ctx);
         display::update_version(&mut display);
         transfer::public_transfer(publisher, tx_context::sender(ctx));
         transfer::public_transfer(display, tx_context::sender(ctx));
@@ -48,11 +48,11 @@ module contract::nft{
     entry public fun mint( state:&mut State, ctx: &mut TxContext){
         let sender = tx_context::sender(ctx);
         state.count = state.count + 1;
-        let nft = MyNFT {
+        let nft = MySBT {
             id: object::new(ctx),
             tokenId: state.count,
         };
-        transfer::public_transfer(nft, sender);
+        transfer::transfer(nft, sender);
     }
 
 }
