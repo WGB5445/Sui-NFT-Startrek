@@ -12,6 +12,7 @@ module contract::nft_sbt{
         tokenId: u64
     }
     
+    // testnet: 0xa600b1a23ff9fdc4b8ed9bcc9adeaa22ee1a21b1f71c2b0fbf5debfa15dbc5a9
     struct State has key {
         id: UID,
         count: u64

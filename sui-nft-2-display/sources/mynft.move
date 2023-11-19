@@ -11,7 +11,7 @@ module contract::nft{
         id: UID,
         tokenId: u64
     }
-    
+    // testnet: 0x624b085fe39b356f8de1da6d867a541ba3f44fb41a7bb4ede6070f6d86ee0e2c
     struct State has key {
         id: UID,
         count: u64

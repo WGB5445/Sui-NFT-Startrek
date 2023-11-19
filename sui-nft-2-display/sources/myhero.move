@@ -18,6 +18,7 @@ module contract::hero{
         createTime: u64
     }
     
+    // testnet: 0x1eb3a8d2392af2a6a9c6607dda68f74fcfe0b3657b947ab345c470ad84460ccd
     struct State has key {
         id: UID,
         count: u64

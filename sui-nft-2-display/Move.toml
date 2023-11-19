@@ -1,6 +1,7 @@
 [package]
 name = "sui-nft-2-display"
 version = "0.0.1"
+published-at = "0x6df35dd65f46b018d5d098b6a522a4037552e602650f55b7d1c4bef033114026"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
