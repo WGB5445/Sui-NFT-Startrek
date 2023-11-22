@@ -56,7 +56,7 @@ module contract::hero{
         });
     
     }
-
+    // clock: 0x6
     entry public fun mint( state:&mut State,clock: &Clock, ctx: &mut TxContext){
         let sender = tx_context::sender(ctx);
         state.count = state.count + 1;

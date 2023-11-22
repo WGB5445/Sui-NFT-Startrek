@@ -1,0 +1,10 @@
+[package]
+name = "sui-nft-3-publisher"
+version = "0.0.1"
+published-at = "0xf1b38e62dc8f45d6a52f20756eb58b1c094b768b0d70ad8752d4faa9bb06ee44"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
+
+[addresses]
+contract = "0x0"
